@@ -1,0 +1,9 @@
+.ProductCard-container{
+    width:18rem;
+    
+}
+.ProductCard-img{
+    width:100%;
+    height: 15vw;
+    object-fit:contain
+}
