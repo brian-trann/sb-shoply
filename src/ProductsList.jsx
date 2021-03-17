@@ -7,7 +7,7 @@ const ProductsList = () => {
 	const products = useSelector((st) => st.products);
 
 	const renderProductCards = Object.keys(products).map((id) => (
-		<ProductCard product={products[id]} key={id} />
+		<ProductCard product={products[id]} key={id} id={id} />
 	));
 	return (
 		<div className='ProductsList-container container'>
