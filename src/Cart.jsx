@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { calculateCartQuantity } from './helpers';
 import ProductButtons from './ProductButtons';
+import { makeTitleText } from './helpers';
 import NoItems from './NoItems';
 import './Cart.css';
 const Cart = () => {
@@ -12,8 +13,8 @@ const Cart = () => {
 	const renderCartTable = () => {
 		const rows = Object.keys(cartItems).map((id) => (
 			<tr key={id}>
-				<td>{products[id].name}</td>
-				<td>{products[id].price}</td>
+				<td>{makeTitleText(products[id].name)}</td>
+				<td>${products[id].price.toLocaleString()}</td>
 				<td>{cartItems[id]}</td>
 				<td>
 					<ProductButtons id={id} />
@@ -21,7 +22,7 @@ const Cart = () => {
 			</tr>
 		));
 		return (
-			<table className='table'>
+			<table className='table mt-4 mb-3'>
 				<thead>
 					<tr>
 						<th>Name</th>
@@ -37,11 +38,10 @@ const Cart = () => {
 
 	return (
 		<div className='Cart-container container'>
-			<div className='Cart-title display-4'>This is your cart</div>
-			<div className='Cart-total'>VALUE ${cartValue.toLocaleString()}</div>
-			<div className='Cart-quantity'>Cart Items: {numItems}</div>
-
+			<div className='Cart-title display-4 text-center'>Cart</div>
 			{cartIsEmpty ? <NoItems /> : renderCartTable()}
+			<div className='Cart-total'>Cart Total: ${cartValue.toLocaleString()}</div>
+			<div className='Cart-quantity'>Cart Items: {numItems}</div>
 		</div>
 	);
 };

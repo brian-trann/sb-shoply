@@ -1,0 +1,12 @@
+.ProductDetail-body{
+    width:450px;
+    margin:auto;
+}
+.ProductDetail-buttons {
+    width: 70px;
+    margin:auto;    
+}
+
+.ProductDetail-img img{
+    width:300px;
+}
